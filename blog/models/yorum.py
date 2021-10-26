@@ -1,11 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
 from blog.models import YazilarModel
 from ckeditor.fields import RichTextField
 
 
 class YorumModel(models.Model):
-    yazan = models.ForeignKey(User, on_delete=models.CASCADE, related_name='yorum')
+    yazan = models.ForeignKey('account.CustomUserModel', on_delete=models.CASCADE, related_name='yorum')
     yazi = models.ForeignKey(YazilarModel, on_delete=models.CASCADE, related_name='yorumlar')
     yorum= RichTextField()
     olusturulma_tarihi=models.DateTimeField(auto_now_add=True)
