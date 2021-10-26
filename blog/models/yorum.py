@@ -1,14 +1,12 @@
 from django.db import models
 from blog.models import YazilarModel
 from ckeditor.fields import RichTextField
+from blog.abstract_models import DateAbstractModel
 
-
-class YorumModel(models.Model):
+class YorumModel(DateAbstractModel):
     yazan = models.ForeignKey('account.CustomUserModel', on_delete=models.CASCADE, related_name='yorum')
     yazi = models.ForeignKey(YazilarModel, on_delete=models.CASCADE, related_name='yorumlar')
     yorum= RichTextField()
-    olusturulma_tarihi=models.DateTimeField(auto_now_add=True)
-    guncellenme_tarihi=models.DateTimeField(auto_now=True)
     
 
     class Meta:
