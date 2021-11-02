@@ -3,7 +3,6 @@ from blog.models import KategoriModel
 from blog.models.iletisim import IletisimModel
 from blog.models.yazi import YazilarModel
 from blog.models.yorum import YorumModel
-from blog.models.iletisim import IletisimModel
 
 admin.site.register(KategoriModel)
 
